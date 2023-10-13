@@ -7,23 +7,21 @@
     <title>Backyard BBQ</title>
 </head>
 <body>
-
-
-
-    <div id="dadContainer" class="container">
-        <img src="/assets/dad-grilling.png" alt="a fun dad">
-        <form id="form" onsubmit="processInput()">      <!-- moved function from individual to container-->
-            <div class="form__group" type="submit">
-                <input type="text" id="interact" placeholder="What's going on buddy?" required/>
-                <button type="submit" class="dad-container__button">Interact</button>  
-            </div>
-         </div>
-    
-    <div id="joke-container">
-    </div>
-
-
-
+    <header class="header" onclick="changeHeaderTitle(this)">
+        <h1 class="header__element">Let's Grill</h1>
+    </header>
+    <main>
+        <div id="dadContainer" class="container">
+            <img src="/assets/dad-grilling.png" alt="a fun dad">
+            <form id="form" onsubmit="processInput()">
+                <div class="form__group" type="submit">
+                    <input type="text" id="interact" placeholder="What's going on buddy?" required/>
+                    <button type="submit" class="dad-container__button">Interact</button>  
+                </div>
+             </div>
+        <div id="joke-container">
+        </div>
+    </main>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="/script.js"></script>    
 </body>
