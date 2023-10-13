@@ -75,12 +75,58 @@
 // export default BandsiteAPI;
 
 
+
+
+
+// jokes.addEventListener("submit", function()) {  
+
+//     function fetchJoke() {
+//         const jokeContainer = document.getElementById('dad-container')
+//       }
+
+//       updateSubmissionsDisplay();
+// }
+
+// const updateSubmissionsDisplay {       //clear existing content in the formSubmission element
+//     formSubmissions.innerHTML = "";
+
+
+// }
+
+// by tonight, make sure we can console log a joke
+
+// tomorrow we'll work on styling and other stuff
+
+
+// const jokeAPI = "https://icanhazdadjoke.com/j/R7UfaahVfFd"
+// const getJoke = async() => {
+//     try {
+//         const response = await axios.get(jokeAPI);  //with an error and you have to follow api instructions, you may have to add a second parameter after gameAPIURL
+//         console.log(response)
+//     } catch (error) {
+//         console.log(error);
+//     }
+// };
+// getJoke();
+
+
+
+            const triviaAPIURL = "http://jservice.io/api/random"
+            async function fetchQuestion (){
+                try{                            
+                    const response = await axios.get(triviaAPIURL);    
+                    console.log(response.data.question);         //specify which data you want to display as response  
+                    return response;  
+                } catch (error) {
+                    console.log("ERROR", error)                     //console.log "error"
+                }
+
+                }
+                fetchQuestion();
+
 // target the button
-//when we click the button, we want text to display
-//console log text
+//when we click the button, we want text to console.log
 
 //how to display to a section on the website as innertext/text content
 
-
-
-
+// const jokes = document.querySelector("dad-container__button");                           //variable to target jokes container
