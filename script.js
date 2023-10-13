@@ -47,8 +47,8 @@
 //     const commentData = await axios.get(`${apiRoot}comments${apiKey}`)    //make get request to API key
 //     addCommentsToDOM(commentData.data);
 // }
-////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////////////////////////////////////////////////////
 
 // const apiRoot = "https://project-1-api.herokuapp.com/"  //make api key a variable incase it changes
 
@@ -111,22 +111,110 @@
 
 
 
-            const triviaAPIURL = "http://jservice.io/api/random"
-            async function fetchQuestion (){
-                try{                            
-                    const response = await axios.get(triviaAPIURL);    
-                    console.log(response.data.question);         //specify which data you want to display as response  
-                    return response;  
-                } catch (error) {
-                    console.log("ERROR", error)                     //console.log "error"
-                }
+//             const triviaAPIURL = "http://jservice.io/api/random"
+//             async function fetchQuestion (){
+//                 try{                            
+//                     const response = await axios.get(triviaAPIURL);    
+//                     console.log(response.data.question);         //specify which data you want to display as response  
+//                     return response;  
+//                 } catch (error) {
+//                     console.log("ERROR", error)                     //console.log "error"
+//                 }
 
-                }
-                fetchQuestion();
+//                 }
+//                 fetchQuestion();
 
 // target the button
-//when we click the button, we want text to console.log
+// when we click the button, we want text to console.log
 
-//how to display to a section on the website as innertext/text content
+// how to display to a section on the website as innertext/text content
 
 // const jokes = document.querySelector("dad-container__button");                           //variable to target jokes container
+
+
+
+// class APIKey {            
+//  constructor(apiRoot) {
+//     this.apiRoot = apiRoot;
+//     this.baseURL = "https://icanhazdadjoke.com/api";
+// }
+//  }
+// console.log(APIKey)
+
+// class TriviaApi {
+//     constructor () {
+//         this.baseUrl = "https://icanhazdadjoke.com/j/R7UfaahVfFd";
+//     }
+//     fetchTrivia = async () => {
+//         try {
+//             const response = await axios.get(`${this.baseUrl}`);
+//             console.log(response.data)
+//             // console.log(response.data[0].question);
+//             const question = response.data
+//             return question;
+//         }   catch(error) {
+//             console.error(error);
+//         }
+//     }
+//     fetchTriviaAnswer = async () => {
+//         try {
+//             const response = await axios.get(`${this.baseUrl}`);
+//             console.log(response.data)
+//             // console.log(response.data[0].question);
+//             const answer = response.data
+//             return answer;
+//         }   catch(error) {
+//             console.error(error);
+//         }
+//     }
+// }
+
+// const newInstanceTriviaAPI = new TriviaApi()
+
+// async function waitFoTrivia () {
+//     const trivia = await newInstanceTriviaAPI.fetchTrivia();   //////here is the data being pulled using await
+//     console.log(trivia)
+//     incomingJokes(trivia)
+// }
+// waitFoTrivia();
+
+
+const apiUrl = 'https://icanhazdadjoke.com/';
+
+dadContainer.addEventListener("submit", function () {
+    const updateSubmissionsDisplay = document.getElementById("joke-container");
+});
+
+function reload() {
+    window.location.reload();
+}
+
+
+
+// Function to fetch and display a random joke
+async function fetchRandomJoke() {
+
+  const jokeContainer = document.getElementById('joke-container');
+
+  try {
+    const response = await fetch(apiUrl, {
+      headers: {
+        'Accept': 'application/json',      }
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      const joke = data.joke;
+
+      // Display the joke in your HTML
+      jokeContainer.innerText = `${joke}`;
+    } else {
+      jokeContainer.innerText = 'Failed to fetch a joke.';
+    }
+  } catch (error) {
+    jokeContainer.innerText = `Error: ${error.message}`;
+  }
+}
+
+// Call the function to fetch and display a random joke
+fetchRandomJoke();
