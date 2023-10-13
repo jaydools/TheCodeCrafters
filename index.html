@@ -12,8 +12,12 @@
 
     <div id="dadContainer" class="container">
         <img src="/assets/dad-grilling.png" alt="a fun dad">
-        <button onclick="window. location. reload()" type="submit" class="dad-container__button">submit</button>
-    </div>
+        <form id="form" onsubmit="processInput()">      <!-- moved function from individual to container-->
+            <div class="form__group" type="submit">
+                <input type="text" id="interact" placeholder="What's going on buddy?" required/>
+                <button type="submit" class="dad-container__button">Interact</button>  
+            </div>
+         </div>
     
     <div id="joke-container">
     </div>
